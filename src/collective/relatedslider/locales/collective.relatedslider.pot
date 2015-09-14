@@ -1,0 +1,25 @@
+# collective.relatedslider translations.
+# Alec Mitchell <alecpm@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"POT-Creation-Date: 2015-09-14 08:33+0000\n"
+"PO-Revision-Date: 2015-09-14 08:33+0000\n"
+"Last-Translator: Alec Mitchell <alecpm@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.relatedslider\n"
+
+#: ../behavior.py:38
+msgid "Select an option for what content to render in the slider."
+msgstr ""
+
+#: ../behavior.py:37
+msgid "Slider Type"
+msgstr ""

@@ -1,0 +1,55 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.relatedslider">
+
+  <includeDependencies package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+
+  <plone:behavior
+    title="Related Slider"
+    description="Adds related slider behavior"
+    provides=".behavior.IRelatedSlider"
+    />
+
+  <utility
+      component=".behavior.SliderOptionsVocabularyFactory"
+      name="collective.relatedslider.options" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.relatedslider"
+      directory="profiles/default"
+      description="Installs the collective.relatedslider add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="collective.relatedslider-postInstall"
+      title="collective.relatedslider post_install import step"
+      description="Post install import step from collective.relatedslider"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.relatedslider"
+      directory="profiles/uninstall"
+      description="Uninstalls the collective.relatedslider add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="collective.relatedslider-uninstall"
+      title="collective.relatedslider uninstall import step"
+      description="Import step run during ininstalling collective.relatedslider"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+</configure>

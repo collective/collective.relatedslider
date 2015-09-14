@@ -1,0 +1,51 @@
+#related-slider {
+    position:relative;
+}
+
+#related-slider .slider {
+    position:relative;
+    overflow:hidden;
+    width: calc(100% - 60px);
+    margin: 0 auto;
+    height:220px;
+}
+
+#related-slider ul {
+    /* this cannot be too large */
+    width:20000em;
+    position:absolute;
+    clear:both;
+    list-style: none;
+}
+
+
+#related-slider li.slider-item {
+    list-style: none;
+    float:left;
+    margin:20px 5px 20px 21px;
+    padding:2px;
+    width:150px;
+    height:180px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#related-slider .control {
+    position: absolute;
+    top: calc(50% - 30px);
+    cursor: pointer;
+    z-index: 10;
+}
+
+#related-slider .prev {
+    left: 0;
+}
+
+#related-slider .next {
+    right: 0;
+}
+
+#related-slider .missing-image {
+    height: 50px;
+    width: 100%;
+}

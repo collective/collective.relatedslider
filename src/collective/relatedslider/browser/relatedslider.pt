@@ -1,0 +1,39 @@
+<aside i18n:domain="collective.relatedslider"
+     id="related-slider" data-ride="carousel"
+     tal:define="content view/related_content|nothing;"
+     tal:condition="content">
+
+  <a class="control prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <div class="slider">
+    <ul>
+      <li class="slider-item" tal:repeat="item content"
+          tal:attributes="class python:'slider-item' + (repeat['item'].start and ' active' or '')">
+        <tal:item define="url item/getURL|item/absolute_url;">
+        <a href=""
+           class="item-image"
+           tal:condition="nocall:item/image|nothing"
+           tal:attributes="href url">
+          <img src="" tal:attributes="src string:${url}/@@images/image/thumb;
+                                      alt item/image_caption|item/Description" />
+        </a>
+        <div class="missing-image" tal:condition="not:nocall:item/image|nothing" />
+        <a href=""
+           class="item-caption"
+           tal:content="item/Title"
+           tal:attributes="href url">
+           Title
+        </a>
+        </tal:item>
+      </li>
+    </ul>
+  </div>
+
+  <a class="control next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</aside>

@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.relatedslider">
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="collective.relatedslider"
+      directory="static"
+      />
+
+  <browser:viewlet
+    name="relatedslider"
+    for="..behavior.IRelatedSlider"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    class=".viewlets.RelatedSliderViewlet"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    layer="..interfaces.ICollectiveRelatedSliderLayer"
+    template="relatedslider.pt"
+    permission="zope2.View"
+    />
+
+
+  <!-- Hide redundant related items -->
+  <browser:viewlet
+    for="..behavior.IRelatedSlider"
+    name="plone.belowcontentbody.relateditems"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+    class=".viewlets.RelatedViewlet"
+    view="plone.app.layout.globals.interfaces.IViewView"
+    layer="..interfaces.ICollectiveRelatedSliderLayer"
+    permission="zope2.View"
+    />
+
+</configure>
