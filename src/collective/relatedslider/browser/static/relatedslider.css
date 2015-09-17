@@ -30,6 +30,11 @@
     vertical-align: middle;
 }
 
+
+#related-slider li.slider-item img {
+    width: 100%;
+}
+
 #related-slider .control {
     position: absolute;
     top: calc(50% - 30px);
