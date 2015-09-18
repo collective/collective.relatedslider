@@ -9,6 +9,7 @@ class RelatedSliderViewlet(ViewletBase):
 
     def update(self):
         slider_type = self.context.slider_type
+        related = []
         if slider_type == u'criteria':
             related = ICollection(self.context).results()
         elif slider_type == u'related':
@@ -20,6 +21,7 @@ class RelatedSliderViewlet(ViewletBase):
             if callable(uid):
                 uid = uid()
             return uid
+
         this_uid = self.context.UID()
         self.related_content = [r for r in related if getUid(r) != this_uid]
 
