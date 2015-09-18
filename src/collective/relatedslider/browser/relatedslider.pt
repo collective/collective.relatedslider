@@ -10,12 +10,13 @@
 
   <div class="slider">
     <ul>
-      <li class="slider-item" tal:repeat="item content"
-          tal:attributes="class python:'slider-item' + (repeat['item'].start and ' active' or '')">
-        <tal:item define="url item/getURL|item/absolute_url;">
+      <tal:items repeat="item content">
+      <li tal:define="url item/getURL|item/absolute_url;
+                      image nocall:item/image|nothing"
+          tal:attributes="class python:'slider-item' + (repeat['item'].start and ' active' or '') + (not image and ' no-image' or '')">
         <a href=""
            class="item-image"
-           tal:condition="nocall:item/image|nothing"
+           tal:condition="nocall:image"
            tal:attributes="href url">
           <img src="" tal:attributes="src string:${url}/@@images/image/thumb;
                                       alt item/image_caption|item/Description" />
@@ -27,8 +28,8 @@
            tal:attributes="href url">
            Title
         </a>
-        </tal:item>
       </li>
+      </tal:items>
     </ul>
   </div>
 

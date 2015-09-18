@@ -10,11 +10,18 @@ class RelatedSliderViewlet(ViewletBase):
     def update(self):
         slider_type = self.context.slider_type
         if slider_type == u'criteria':
-            self.related_content = ICollection(self.context).results()
+            related = ICollection(self.context).results()
         elif slider_type == u'related':
-            self.related_content = [o.to_object for o in
-                                    self.context.relatedItems
-                                    if not o.isBroken()]
+            related = [o.to_object for o in self.context.relatedItems
+                       if not o.isBroken()]
+
+        def getUid(obj):
+            uid = getattr(obj, 'UID', None)
+            if callable(uid):
+                uid = uid()
+            return uid
+        this_uid = self.context.UID()
+        self.related_content = [r for r in related if getUid(r) != this_uid]
 
 
 class RelatedViewlet(ContentRelatedItems):
