@@ -33,8 +33,14 @@ class IRelatedSlider(model.Schema):
     """Behavior that allows content to display related items in
     a slider"""
 
+    slider_title = schema.TextLine(
+        title=_(u'Related Slider Title'),
+        description=_(u'Enter an optional title for the slider viewlet.'),
+        required=True
+    )
+
     slider_type = schema.Choice(
-        title=_(u'Slider Type'),
+        title=_(u'Related Slider Type'),
         description=_(u'Select an option for what content to render in the '
                       u'slider.'),
         vocabulary='collective.relatedslider.options'

@@ -54,3 +54,7 @@
     height: 50px;
     width: 100%;
 }
+
+#related-slider h4.SliderTitle {
+    margin-bottom: 0;
+}

@@ -2,7 +2,7 @@
      id="related-slider" data-ride="carousel"
      tal:define="content view/related_content|nothing;"
      tal:condition="content">
-
+  <h4 class="SliderTitle" tal:condition="view/slider_title|nothing" tal:content="view/slider_title">Slider Title:</h4>
   <a class="control prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>

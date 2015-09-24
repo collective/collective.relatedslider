@@ -6,9 +6,11 @@ from plone.app.layout.viewlets import ViewletBase
 class RelatedSliderViewlet(ViewletBase):
     """Viewlet for displaying a slider of related items"""
     related_content = []
+    slider_title = None
 
     def update(self):
         slider_type = self.context.slider_type
+        self.slider_title = self.context.slider_title
         related = []
         if slider_type == u'criteria':
             related = ICollection(self.context).results()
