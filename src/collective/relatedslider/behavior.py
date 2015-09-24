@@ -36,7 +36,7 @@ class IRelatedSlider(model.Schema):
     slider_title = schema.TextLine(
         title=_(u'Related Slider Title'),
         description=_(u'Enter an optional title for the slider viewlet.'),
-        required=True
+        required=False
     )
 
     slider_type = schema.Choice(
