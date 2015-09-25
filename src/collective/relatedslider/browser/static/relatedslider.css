@@ -57,6 +57,9 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     vertical-align: middle;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: None;
 }
 
 #related-slider .prev {
@@ -65,11 +68,6 @@
 
 #related-slider .next {
     right: 0;
-}
-
-#related-slider .control .glyph{
-    font-size: 150%;
-    font-weight: bold;
 }
 
 #related-slider .missing-image {
