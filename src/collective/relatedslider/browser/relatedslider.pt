@@ -1,40 +1,45 @@
-<aside i18n:domain="collective.relatedslider"
-     id="related-slider" data-ride="carousel"
-     tal:define="content view/related_content|nothing;"
-     tal:condition="content">
-  <h4 class="SliderTitle" tal:condition="view/slider_title|nothing" tal:content="view/slider_title">Slider Title:</h4>
-  <a class="control prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
+<div id="related-slider-wrapper">
+  <aside i18n:domain="collective.relatedslider"
+       id="related-slider" data-ride="carousel"
+       tal:define="content view/related_content|nothing;"
+       tal:condition="content">
+    <h4 class="SliderTitle" tal:condition="view/slider_title|nothing" tal:content="view/slider_title">Slider Title:</h4>
+    <div class="control-wrapper">
+      <a class="control prev">
+        <span class="glyph" aria-hidden="true">&#x3008;</span>
+        <span class="sr-only">Previous</span>
+      </a>
 
-  <div class="slider">
-    <ul>
-      <tal:items repeat="item content">
-      <li tal:define="url item/getURL|item/absolute_url;
-                      image nocall:item/image|nothing"
-          tal:attributes="class python:'slider-item' + (repeat['item'].start and ' active' or '') + (not image and ' no-image' or '')">
-        <a href=""
-           class="item-image"
-           tal:condition="nocall:image"
-           tal:attributes="href url">
-          <img src="" tal:attributes="src string:${url}/@@images/image/thumb;
-                                      alt item/image_caption|item/Description" />
-        </a>
-        <div class="missing-image" tal:condition="not:nocall:item/image|nothing" />
-        <a href=""
-           class="item-caption"
-           tal:content="item/Title"
-           tal:attributes="href url">
-           Title
-        </a>
-      </li>
-      </tal:items>
-    </ul>
-  </div>
+      <div class="slider">
+        <ul>
+          <tal:items repeat="item content">
+          <li tal:define="url item/getURL|item/absolute_url;
+                          image nocall:item/image|nothing"
+              tal:attributes="class python:'slider-item' + (repeat['item'].start and ' active' or '') + (not image and ' no-image' or '')">
+            <a href=""
+               class="item-image"
+               tal:condition="nocall:image"
+               tal:attributes="href url">
+              <img src="" tal:attributes="src string:${url}/@@images/image/thumb;
+                                          alt item/image_caption|item/Description" />
+            </a>
+            <div class="missing-image" tal:condition="not:nocall:item/image|nothing" />
+            <a href=""
+               class="item-caption">
+               <span tal:content="item/Title"
+                     tal:attributes="href url">
+                Title
+              </span>
+            </a>
+          </li>
+          </tal:items>
+        </ul>
+      </div>
 
-  <a class="control next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</aside>
+      <a class="control next">
+        <span class="glyph" aria-hidden="true">&#x3009;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </aside>
+</div>
