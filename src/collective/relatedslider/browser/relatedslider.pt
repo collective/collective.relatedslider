@@ -1,8 +1,8 @@
-<div id="related-slider-wrapper">
+<div id="related-slider-wrapper"
+     tal:define="content view/related_content|nothing;"
+     tal:condition="content">
   <aside i18n:domain="collective.relatedslider"
-       id="related-slider" data-ride="carousel"
-       tal:define="content view/related_content|nothing;"
-       tal:condition="content">
+         id="related-slider" data-ride="carousel">
     <h4 class="SliderTitle" tal:condition="view/slider_title|nothing" tal:content="view/slider_title">Slider Title:</h4>
     <div class="control-wrapper">
       <a class="control prev">
