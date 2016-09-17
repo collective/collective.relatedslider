@@ -1,5 +1,5 @@
 <div id="related-slider-wrapper"
-     tal:define="content view/related_content|nothing;"
+     tal:define="content view/related_content|nothing; normalizer nocall:context/plone_utils/normalizeString|nothing"
      tal:condition="content">
   <aside i18n:domain="collective.relatedslider"
          id="related-slider" data-ride="carousel">
@@ -11,11 +11,11 @@
       </a>
 
       <div class="slider">
-        <ul>
+        <ul tal:attributes="class python:'slider-items-{}'.format(len(content))">
           <tal:items repeat="item content">
-          <li tal:define="url item/getURL|item/absolute_url;
+          <li tal:define="url item/absolute_url;
                           image nocall:item/image|nothing"
-              tal:attributes="class python:'slider-item' + (repeat['item'].start and ' active' or '') + (not image and ' no-image' or '')">
+              tal:attributes="class python:'slider-item' + (' type-' + normalizer(item.portal_type)) + (repeat['item'].start and ' active' or '') + (not image and ' no-image' or '')">
             <a href=""
                class="item-image"
                tal:condition="nocall:image"

@@ -70,6 +70,10 @@
     right: 0;
 }
 
+#related-slider .prev.disabled, #related-slider .next.disabled {
+    visibility: hidden;
+}
+
 #related-slider .missing-image {
     display: none;
 }
