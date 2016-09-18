@@ -13,7 +13,7 @@ class RelatedSliderViewlet(ViewletBase):
         self.slider_title = self.context.slider_title
         related = []
         if slider_type == u'criteria':
-            related = ICollection(self.context).results(brains=False)
+            related = ICollection(self.context).results()
         elif slider_type == u'related':
             related = [o.to_object for o in self.context.relatedItems
                        if not o.isBroken()]
