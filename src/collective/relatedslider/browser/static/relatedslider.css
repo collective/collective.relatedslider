@@ -12,12 +12,13 @@
 }
 
 #related-slider .slides {
-    height: 180px;
+    height: auto;
     width: 100%;
     padding: 0;
     margin: 0 0 10px 0;
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -91,4 +92,14 @@
 
 #related-slider h4.SliderTitle {
     margin: 0 0 1em 30px;
+}
+
+@media (max-width: 700px) {
+    #related-slider .slider {
+        width: 300px;
+        height: auto;
+    }
+    #related-slider .slides > li {
+        width: 300px;
+    }
 }
