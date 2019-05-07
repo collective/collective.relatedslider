@@ -52,4 +52,11 @@
       handler=".setuphandlers.uninstall">
   </genericsetup:importStep>
 
+  <genericsetup:upgradeDepends
+      profile="collective.relatedslider:default"
+      source="1000"
+      destination="1001"
+      title="Update resources"
+      import_steps="plone.app.registry" />
+
 </configure>

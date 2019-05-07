@@ -5,14 +5,14 @@
         <value key="css">
             <element>++resource++collective.relatedslider/relatedslider.css</element>
         </value>
-        <value key="js">++resource++collective.relatedslider/relatedslider.js</value>
+        <value key="js"></value>
     </records>
     <records prefix="plone.bundles/relatedslider"
              interface="Products.CMFPlone.interfaces.IBundleRegistry">
         <value key="resources">
             <element>relatedslider</element>
         </value>
-        <value key="jscompilation">++plone++static/relatedslider.js</value>
+        <value key="jscompilation"></value>
         <value key="csscompilation">++plone++static/relatedslider.css</value>
         <value key="last_compilation">2015-09-13 00:00:00</value>
         <value key="compile">False</value>
