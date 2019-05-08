@@ -2,7 +2,7 @@
 """Setup tests for this package."""
 from collective.relatedslider.testing import COLLECTIVE_RELATEDSLIDER_INTEGRATION_TESTING  # noqa
 from collective.relatedslider.interfaces import ICollectiveRelatedSliderLayer
-from plone import api
+from Products.CMFPlone.utils import get_installer
 try:
     import unittest2 as unittest
 except ImportError:
@@ -17,14 +17,14 @@ class TestSetup(unittest.TestCase):
     def setUp(self):
         """Custom shared utility setup for tests."""
         self.portal = self.layer['portal']
-        self.installer = api.portal.get_tool('portal_quickinstaller')
+        self.installer = get_installer(self.portal)
 
     def test_product_installed(self):
         """Test if collective.relatedslider is installed with
         portal_quickinstaller."""
-        self.assertTrue(self.installer.isProductInstalled(
-            'collective.relatedslider')
-        )
+        self.assertTrue(self.installer.is_product_installed(
+            'collective.relatedslider'
+        ))
 
     def test_browserlayer(self):
         """Test that ICollectiveRelatedSliderLayer is registered."""
@@ -38,12 +38,12 @@ class TestUninstall(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.installer = api.portal.get_tool('portal_quickinstaller')
-        self.installer.uninstallProducts(['collective.relatedslider'])
+        self.installer = get_installer(self.portal)
+        self.installer.uninstall_product('collective.relatedslider')
 
     def test_product_uninstalled(self):
         """Test if collective.relatedslider is cleanly uninstalled."""
-        self.assertFalse(self.installer.isProductInstalled(
+        self.assertFalse(self.installer.is_product_installed(
             'collective.relatedslider')
         )
 
