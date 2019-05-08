@@ -21,10 +21,10 @@ class TestSetup(unittest.TestCase):
         self.assertTrue(self.installer.isProductInstalled('collective.relatedslider'))
 
     def test_browserlayer(self):
-        """Test that ICollectiveRelatedsliderLayer is registered."""
-        from collective.relatedslider.interfaces import ICollectiveRelatedsliderLayer
+        """Test that ICollectiveRelatedSliderLayer is registered."""
+        from collective.relatedslider.interfaces import ICollectiveRelatedSliderLayer
         from plone.browserlayer import utils
-        self.assertIn(ICollectiveRelatedsliderLayer, utils.registered_layers())
+        self.assertIn(ICollectiveRelatedSliderLayer, utils.registered_layers())
 
 
 class TestUninstall(unittest.TestCase):
@@ -41,7 +41,7 @@ class TestUninstall(unittest.TestCase):
         self.assertFalse(self.installer.isProductInstalled('collective.relatedslider'))
 
     def test_browserlayer_removed(self):
-        """Test that ICollectiveRelatedsliderLayer is removed."""
-        from collective.relatedslider.interfaces import ICollectiveRelatedsliderLayer
+        """Test that ICollectiveRelatedSliderLayer is removed."""
+        from collective.relatedslider.interfaces import ICollectiveRelatedSliderLayer
         from plone.browserlayer import utils
-        self.assertNotIn(ICollectiveRelatedsliderLayer, utils.registered_layers())
+        self.assertNotIn(ICollectiveRelatedSliderLayer, utils.registered_layers())
