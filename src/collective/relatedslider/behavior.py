@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.app.contenttypes.behaviors.collection import ISyndicatableCollection
 from plone.app.relationfield.behavior import IRelatedItems
@@ -15,7 +17,8 @@ from . import _
 class SliderOptionsVocabulary(object):
 
     def __call__(self, context):
-        terms = [SimpleTerm(title=u'Disabled', value=u'disabled', token='disabled')]
+        terms = [SimpleTerm(title=u'Disabled', value=u'disabled',
+                            token='disabled')]
         if ISyndicatableCollection.providedBy(context):
             terms.append(SimpleTerm(title=u'From Criteria', value=u'criteria',
                                     token='criteria'))
@@ -24,6 +27,7 @@ class SliderOptionsVocabulary(object):
                                     value=u'related',
                                     token='related'))
         return SimpleVocabulary(terms)
+
 
 SliderOptionsVocabularyFactory = SliderOptionsVocabulary()
 

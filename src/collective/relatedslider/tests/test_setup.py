@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.relatedslider.testing import COLLECTIVE_RELATEDSLIDER_INTEGRATION_TESTING  # noqa
+from collective.relatedslider.interfaces import ICollectiveRelatedSliderLayer
 from plone import api
-
-import unittest2 as unittest
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 
 class TestSetup(unittest.TestCase):
@@ -17,12 +20,14 @@ class TestSetup(unittest.TestCase):
         self.installer = api.portal.get_tool('portal_quickinstaller')
 
     def test_product_installed(self):
-        """Test if collective.relatedslider is installed with portal_quickinstaller."""
-        self.assertTrue(self.installer.isProductInstalled('collective.relatedslider'))
+        """Test if collective.relatedslider is installed with
+        portal_quickinstaller."""
+        self.assertTrue(self.installer.isProductInstalled(
+            'collective.relatedslider')
+        )
 
     def test_browserlayer(self):
         """Test that ICollectiveRelatedSliderLayer is registered."""
-        from collective.relatedslider.interfaces import ICollectiveRelatedSliderLayer
         from plone.browserlayer import utils
         self.assertIn(ICollectiveRelatedSliderLayer, utils.registered_layers())
 
@@ -38,10 +43,12 @@ class TestUninstall(unittest.TestCase):
 
     def test_product_uninstalled(self):
         """Test if collective.relatedslider is cleanly uninstalled."""
-        self.assertFalse(self.installer.isProductInstalled('collective.relatedslider'))
+        self.assertFalse(self.installer.isProductInstalled(
+            'collective.relatedslider')
+        )
 
     def test_browserlayer_removed(self):
         """Test that ICollectiveRelatedSliderLayer is removed."""
-        from collective.relatedslider.interfaces import ICollectiveRelatedSliderLayer
         from plone.browserlayer import utils
-        self.assertNotIn(ICollectiveRelatedSliderLayer, utils.registered_layers())
+        self.assertNotIn(ICollectiveRelatedSliderLayer,
+                         utils.registered_layers())

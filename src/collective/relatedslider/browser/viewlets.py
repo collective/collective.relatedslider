@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from plone.app.contenttypes.behaviors.collection import ICollection
 from plone.app.layout.viewlets.content import ContentRelatedItems
 from plone.app.layout.viewlets import ViewletBase
