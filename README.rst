@@ -3,9 +3,9 @@ collective.relatedslider
 ==============================================================================
 
 This is a Plone addon that adds a behavior and viewlet for displaying related
-content in a scrollable slider at the bottom of the content area.  It can use
-either the relatedItems behavior or collection behavior applied to the content
-for determining the related items.
+content in a scrollable HTML/CSS slider at the bottom of the content area.  It
+can use either the relatedItems behavior or collection behavior applied to the
+content for determining the related items.
 
 
 

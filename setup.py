@@ -19,7 +19,7 @@ long_description = (
 
 setup(
     name='collective.relatedslider',
-    version='0.2.dev0',
+    version='0.2',
     description="Plone addon that creates a slider viewlet containing related content.",
     long_description=long_description,
     # Get more from http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -45,7 +45,6 @@ setup(
     install_requires=[
         'setuptools',
         'plone.app.contenttypes',
-        'plone.app.jquerytools',
     ],
     extras_require={
         'test': [
