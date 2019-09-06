@@ -37,6 +37,7 @@
 
 #related-slider .slides > li {
     width: 150px;
+    overflow: hidden;
     height: 100%;
     margin:0 30px 0 0;
     box-sizing: border-box;
@@ -50,7 +51,8 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-bottom: 20px;
 }
 
 #related-slider .slides > li:hover, #related-slider .slides > li:active {
@@ -69,6 +71,7 @@
     border: 1px solid black;
     margin: 0 0 0.5rem 0;
     position: relative;
+    word-wrap: break-word;
 }
 #related-slider .slider > a:active {
     top: 1px;
